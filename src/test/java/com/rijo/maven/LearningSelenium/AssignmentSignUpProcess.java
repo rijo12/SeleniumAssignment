@@ -153,40 +153,39 @@ public class AssignmentSignUpProcess {
 
 		// Billing details
 
-		WebElement firstNameFieldBilling= driver.findElement(By.cssSelector("#input-payment-firstname"));
-		
+		WebElement firstNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-firstname"));
+
 		firstNameFieldBilling.sendKeys("Anoop");
-		
-		WebElement lastNameFieldBilling= driver.findElement(By.cssSelector("#input-payment-lastname"));
-		
+
+		WebElement lastNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-lastname"));
+
 		lastNameFieldBilling.sendKeys("Vadakkan");
-		
-		WebElement companyFieldBilling= driver.findElement(By.cssSelector("#input-payment-company"));
-		
+
+		WebElement companyFieldBilling = driver.findElement(By.cssSelector("#input-payment-company"));
+
 		companyFieldBilling.sendKeys("ABC");
-		
-		WebElement addressField1Billing= driver.findElement(By.cssSelector("#input-payment-address-1"));
-		
+
+		WebElement addressField1Billing = driver.findElement(By.cssSelector("#input-payment-address-1"));
+
 		addressField1Billing.sendKeys("Camp field");
-		
-		WebElement cityFieldBilling= driver.findElement(By.cssSelector("#input-payment-city"));
-		
+
+		WebElement cityFieldBilling = driver.findElement(By.cssSelector("#input-payment-city"));
+
 		cityFieldBilling.sendKeys("Toronto");
-		
-		WebElement postCodeFieldBilling= driver.findElement(By.cssSelector("#input-payment-postcode"));
-		
+
+		WebElement postCodeFieldBilling = driver.findElement(By.cssSelector("#input-payment-postcode"));
+
 		postCodeFieldBilling.sendKeys("M6T 5P7");
-		
+
 		// Creating the select class to select one option from dropdown window
-		
-		Select countryDropDownSelect= new Select(driver.findElement(By.cssSelector("#input-payment-country")));
-		
+
+		Select countryDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-country")));
+
 		countryDropDownSelect.selectByValue("38");
-		
-		Select regionDropDownSelect= new Select(driver.findElement(By.cssSelector("#input-payment-zone")));
-		
+
+		Select regionDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-zone")));
+
 		regionDropDownSelect.selectByValue("610");
-		
 
 		driver.findElement(By.id("button-payment-address")).click();
 
