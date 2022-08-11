@@ -44,19 +44,40 @@ public class WindowHandleProgram {
 
 		@Test
 		public void windowHandleTest() {
+			
+			String childWindowOne="";
 
 			String parentWindowHandle = driver.getWindowHandle();
 
 			System.out.println("Parent WindowHandle: " + parentWindowHandle);
 			
-			
+			driver.findElement(By.id("tab Button")).click();
 
 			Set<String> allWindowHandles = driver.getWindowHandles();
-
-			ArrayList<String> tabs = new ArrayList<String>(allWindowHandles);
 			
-			System.out.println(tabs);
+			for( String tabs: allWindowHandles) {
+				
+				if(!tabs.equals(parentWindowHandle)) {
+					
+					driver.switchTo().window(tabs);
+					
+					childWindowOne=tabs;
+				}
+			}
+			
+			driver.findElement(By.id("tab Button")).click();
+			
+			allWindowHandles=driver.getWindowHandles();
+			
+			for (String newTab: allWindowHandles) {
+				
+				if(!newTab.equals(parentWindowHandle)||!newTab.equals(childWindowOne)) {
+					
+					driver.switchTo().window(newTab);
+				}
+			}
 
+			
 			String textFromSecondTab = driver.findElement(By.name("")).getText();
 
 			System.out.println(textFromSecondTab);
