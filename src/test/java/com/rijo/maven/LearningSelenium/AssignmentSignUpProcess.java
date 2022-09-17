@@ -7,7 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,56 +40,56 @@ public class AssignmentSignUpProcess {
 
 		// Maximize the screen
 
-		driver.manage().window().maximize();
+//		driver.manage().window().maximize();
+//
+//		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-
-		driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
-
-	}
-
-	@Test
-	public void signUp() {
-
-		// sign up process
-
-		WebElement firstNameField = driver.findElement(By.id("input-firstname"));
-
-		firstNameField.sendKeys("Anoop");
-
-		WebElement lastNameField = driver.findElement(By.id("input-lastname"));
-
-		lastNameField.sendKeys("Vadakkan");
-
-		WebElement eMailField = driver.findElement(By.id("input-email"));
-
-		eMailField.sendKeys("anoopvadakkan@gmail.com");
-
-		WebElement telephoneNumberField = driver.findElement(By.id("input-telephone"));
-
-		telephoneNumberField.sendKeys("2587852110");
-
-		WebElement passwordField = driver.findElement(By.id("input-password"));
-
-		passwordField.sendKeys("Anoop12#");
-
-		WebElement passwordConfirmField = driver.findElement(By.id("input-confirm"));
-
-		passwordConfirmField.sendKeys("Anoop12#");
-
-		WebElement newsLetterSubscribeYes = driver.findElement(By.cssSelector("label.radio-inline input"));
-
-		ac.click(newsLetterSubscribeYes).perform();
-
-		WebElement privacyPolicyCheck = driver.findElement(By.cssSelector("div.buttons input"));
-
-		ac.click(privacyPolicyCheck).perform();
-
-		WebElement continueButton = driver.findElement(By.cssSelector("div.buttons input.btn"));
-
-		continueButton.click();
+//		driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
 
 	}
+
+//	@Test
+//	public void signUp() {
+//
+//		// sign up process
+//
+//		WebElement firstNameField = driver.findElement(By.id("input-firstname"));
+//
+//		firstNameField.sendKeys("Anoop");
+//
+//		WebElement lastNameField = driver.findElement(By.id("input-lastname"));
+//
+//		lastNameField.sendKeys("Vadakkan");
+//
+//		WebElement eMailField = driver.findElement(By.id("input-email"));
+//
+//		eMailField.sendKeys("anoopvadakkan@gmail.com");
+//
+//		WebElement telephoneNumberField = driver.findElement(By.id("input-telephone"));
+//
+//		telephoneNumberField.sendKeys("2587852110");
+//
+//		WebElement passwordField = driver.findElement(By.id("input-password"));
+//
+//		passwordField.sendKeys("Anoop12#");
+//
+//		WebElement passwordConfirmField = driver.findElement(By.id("input-confirm"));
+//
+//		passwordConfirmField.sendKeys("Anoop12#");
+//
+//		WebElement newsLetterSubscribeYes = driver.findElement(By.cssSelector("label.radio-inline input"));
+//
+//		ac.click(newsLetterSubscribeYes).perform();
+//
+//		WebElement privacyPolicyCheck = driver.findElement(By.cssSelector("div.buttons input"));
+//
+//		ac.click(privacyPolicyCheck).perform();
+//
+//		WebElement continueButton = driver.findElement(By.cssSelector("div.buttons input.btn"));
+//
+//		continueButton.click();
+//
+//	}
 
 	@Test
 	public void purchase() {
@@ -95,8 +97,10 @@ public class AssignmentSignUpProcess {
 
 		driver.navigate().to("https://naveenautomationlabs.com/opencart/index.php?route=common/home");
 
+		driver.manage().window().fullscreen();
+		
 		WebElement myAccountClick = driver
-				.findElement(By.cssSelector("ul.list-inline>li:nth-of-type(2) a span.hidden-xs"));
+				.findElement(By.cssSelector("div.container div:nth-of-type(2) ul>li:nth-of-type(2) span.caret"));
 
 		ac.click(myAccountClick).perform();
 
@@ -153,47 +157,49 @@ public class AssignmentSignUpProcess {
 
 		// Billing details
 
-		WebElement firstNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-firstname"));
+//		WebElement firstNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-firstname"));
+//
+//		firstNameFieldBilling.sendKeys("Anoop");
+//
+//		WebElement lastNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-lastname"));
+//
+//		lastNameFieldBilling.sendKeys("Vadakkan");
+//
+//		WebElement companyFieldBilling = driver.findElement(By.cssSelector("#input-payment-company"));
+//
+//		companyFieldBilling.sendKeys("ABC");
+//
+//		WebElement addressField1Billing = driver.findElement(By.cssSelector("#input-payment-address-1"));
+//
+//		addressField1Billing.sendKeys("Camp field");
+//
+//		WebElement cityFieldBilling = driver.findElement(By.cssSelector("#input-payment-city"));
+//
+//		cityFieldBilling.sendKeys("Toronto");
+//
+//		WebElement postCodeFieldBilling = driver.findElement(By.cssSelector("#input-payment-postcode"));
+//
+//		postCodeFieldBilling.sendKeys("M6T 5P7");
+//
+//		// Creating the select class to select one option from dropdown window
+//
+//		Select countryDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-country")));
+//
+//		countryDropDownSelect.selectByValue("38");
+//
+//		Select regionDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-zone")));
+//
+//		regionDropDownSelect.selectByValue("610");
+		
+		explicitWaitClass("button-payment-address");
+	//	driver.findElement(By.id("button-payment-address")).click();
+		explicitWaitClass("button-shipping-address");
 
-		firstNameFieldBilling.sendKeys("Anoop");
+	//	driver.findElement(By.id("button-shipping-address")).click();
 
-		WebElement lastNameFieldBilling = driver.findElement(By.cssSelector("#input-payment-lastname"));
+//		driver.findElement(By.id("button-shipping-method")).click();
 
-		lastNameFieldBilling.sendKeys("Vadakkan");
-
-		WebElement companyFieldBilling = driver.findElement(By.cssSelector("#input-payment-company"));
-
-		companyFieldBilling.sendKeys("ABC");
-
-		WebElement addressField1Billing = driver.findElement(By.cssSelector("#input-payment-address-1"));
-
-		addressField1Billing.sendKeys("Camp field");
-
-		WebElement cityFieldBilling = driver.findElement(By.cssSelector("#input-payment-city"));
-
-		cityFieldBilling.sendKeys("Toronto");
-
-		WebElement postCodeFieldBilling = driver.findElement(By.cssSelector("#input-payment-postcode"));
-
-		postCodeFieldBilling.sendKeys("M6T 5P7");
-
-		// Creating the select class to select one option from dropdown window
-
-		Select countryDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-country")));
-
-		countryDropDownSelect.selectByValue("38");
-
-		Select regionDropDownSelect = new Select(driver.findElement(By.cssSelector("#input-payment-zone")));
-
-		regionDropDownSelect.selectByValue("610");
-
-		driver.findElement(By.id("button-payment-address")).click();
-
-		driver.findElement(By.id("button-shipping-address")).click();
-
-		driver.findElement(By.id("button-shipping-method")).click();
-
-		sleep();
+		explicitWaitClass("button-shipping-method");
 
 		driver.findElement(By.cssSelector("#collapse-payment-method div:nth-of-type(2) input")).click();
 
@@ -207,7 +213,7 @@ public class AssignmentSignUpProcess {
 
 		Assert.assertEquals(placedOrderMessage, "Your order has been placed!", "Order Not Placed");
 
-		WebElement myAccount = driver.findElement(By.cssSelector("ul.list-inline>li:nth-of-type(2) span"));
+		WebElement myAccount = driver.findElement(By.cssSelector("ul.list-inline>li:nth-of-type(2) span.caret"));
 
 		ac.click(myAccount).perform();
 
@@ -224,6 +230,14 @@ public class AssignmentSignUpProcess {
 		Assert.assertEquals(logOutMessage, "Account Logout", "Not Successfully Logged Out");
 
 	}
+	
+	
+	//public void selectMethod(int number, Str) {
+		
+	//	Select sc = new 
+		
+		
+//	}
 
 	public void sleep() {
 		try {
@@ -233,15 +247,23 @@ public class AssignmentSignUpProcess {
 			e.printStackTrace();
 		}
 	}
-
-	@AfterMethod
-
-	public void teardown() {
-
-		// close the browser
-
-		driver.close();
-
+	
+	
+	public void explicitWaitClass(String waitl) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(waitl))).click();
 	}
+
+//	@AfterMethod
+//
+//	public void teardown() {
+//
+//		// close the browser
+//
+//		driver.close();
+//
+//	}
 
 }

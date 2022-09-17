@@ -9,6 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver.WindowType;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -65,7 +68,12 @@ public class WindowHandleProgram {
 				}
 			}
 			
-			driver.findElement(By.id("tab Button")).click();
+			WebDriverWait wait= new WebDriverWait(driver, 5);
+			
+			WebElement tabbutton=wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("tab Button")));
+			
+			tabbutton.click();
+			
 			
 			allWindowHandles=driver.getWindowHandles();
 			
